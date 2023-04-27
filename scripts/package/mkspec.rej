@@ -1,0 +1,12 @@
+--- scripts/package/mkspec
++++ scripts/package/mkspec
+@@ -25,7 +25,7 @@ fi
+ 
++PROVIDES_DRM=""
+ if grep -q CONFIG_DRM=y .config; then
+-	PROVIDES=kernel-drm
++	PROVIDES_DRM="Provides: kernel-drm = %{version}"
+ fi
+ 
+-PROVIDES="$PROVIDES kernel-$KERNELRELEASE"
+ __KERNELRELEASE=$(echo $KERNELRELEASE | sed -e "s/-/_/g")
